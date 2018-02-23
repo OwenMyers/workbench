@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<peaklist>
+    <pl_name>centroided_DC_010814_StandardsMixTest1_34StandardMix_01.mzXML.CDF chromatograms deconvoluted</pl_name>
+    <created>2017/04/12 14:32:40</created>
+    <quantity>2</quantity>
+
+    <applied_method>
+        <method_name>Peak deconvolution by Wavelets (ADAP)</method_name>
+        <method_parameters>S/N threshold: 10.0, SN estimator: Intensity window SN, min feature height: 1.0E7, coefficient/area threshold: 150.0, Peak duration range: [0.01..2.0], RT wavelet range: [0.01..0.1]</method_parameters>
+    </applied_method>
+
+    <raw_file>centroided_DC_010814_StandardsMixTest1_34StandardMix_01.mzXML.CDF</raw_file>
+    <row id="1">
+
+        <information>
+            <information_property name="Signal-to-Noise">36593.15806372784</information_property>
+        </information>
+
+        <peak column_id="centroided_DC_010814_StandardsMixTest1_34StandardMix_01.mzXML.CDF" mz="140.95191955566406" rt="1263.4" height="2.2376146E7" area="1.2332098322653784E8" status="DETECTED" charge="0">
+            <best_scan>1427</best_scan>
+            <fragment_scan>-1</fragment_scan>
+            <mzpeaks quantity="32">
+                <scan_id>AAAFjQAABY4AAAWPAAAFkAAABZEAAAWSAAAFkwAABZQAAAWVAAAFlgAABZcAAAWYAAAFmQAABZoAAAWbAAAFnAAABZ0AAAWeAAAFnwAABaAAAAWhAAAFogAABaMAAAWkAAAFpQAABaYAAAWnAAAFqAAABakAAAWqAAAFqwAABaw=</scan_id>
+                <mz>QwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87FDDPOxQwzzsUMM87E=</mz>
+                <height>Rm/UP0ijInRJ4aA+SriAM0tNESlLnbEnS6q3aUuWmmhLgb0CSzzAM0sDr61Ku+pBSneM/Uo3P7RKCVeiSb4/SkmdmfpJdjVMSUbjyEkYdlxJAHdUSO8SbUjlsv5I12tRSLoac0iuJtlIlupdSG0NjUhqvulISLA2SD9eLkgR3Yg=</height>
+            </mzpeaks>
+        </peak>
+
+    </row>
+
+    <row id="2">
+
+        <information>
+            <information_property name="Signal-to-Noise">1.0E12</information_property>
+        </information>
+
+        <peak column_id="centroided_DC_010814_StandardsMixTest1_34StandardMix_01.mzXML.CDF" mz="142.9485626220703" rt="1263.4" height="1.2601313E7" area="7.080788950777332E7" status="DETECTED" charge="0">
+            <best_scan>1427</best_scan>
+            <fragment_scan>-1</fragment_scan>
+            <mzpeaks quantity="33">
+                <scan_id>AAAFjAAABY0AAAWOAAAFjwAABZAAAAWRAAAFkgAABZMAAAWUAAAFlQAABZYAAAWXAAAFmAAABZkAAAWaAAAFmwAABZwAAAWdAAAFngAABZ8AAAWgAAAFoQAABaIAAAWjAAAFpAAABaUAAAWmAAAFpwAABagAAAWpAAAFqgAABasAAAWs</scan_id>
+                <mz>Qw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLVQw7y1UMO8tVDDvLV</mz>
+                <height>AAAAAEXP3YBINoF3SYUzQkpVPGpK8CApSzfpJ0tAR+FLKxC+SxPfUkrbcalKlXepSlmdDkoMX0pJ0Ud6SZ9T9klb0RJJMwCzSQ5PCEjkkyNIqwMLSJEWv0iHtFFIhiJhSHorWkhVx6NIRP1USC1Tm0gORlhICiFBR/wcx0fefrNHtBsA</height>
+            </mzpeaks>
+        </peak>
+    </row>
+</peaklist>

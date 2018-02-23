@@ -1,0 +1,6 @@
+
+Simply Turn indexing off for the drive and erase the contents of the journal on the volume. To do
+so, open Terminal and enter the following command: 
+
+sudo mdutil -Ei off "/Volumes/Name_of_Drive"; exit
+
