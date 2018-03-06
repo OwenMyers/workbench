@@ -10,8 +10,11 @@
     
 ## Set up for YouCompleteMe
 * `pact install automake gcc gcc-c++ kernel-devel cmake`
-* `pact install install python-devel python3-devel`
+* `pact install python-devel python3-devel`
 * `pact install gcc-g++`
+* Follow simple YouCompleteMe instructions on webpage. Should just be
+	- `cd .vim/bundle/YouCompleteMe`
+	- `./install.py`
 
 ## Getting to C://
 * `cd /cygdrive/c/` gets you out to `C://`

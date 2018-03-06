@@ -1,0 +1,50 @@
+Notes on getting gvim working on Windows
+
+The trickiest part is getting fondled to work with the plug-ins.
+
+1st change the user template directory environment variables to c:\\temp 
+ 
+2nd put the following lines in your vimrc
+```
+set noundofile
+
+if has('win32')
+  " Avoid mswin.vim making Ctrl-v act as paste
+  noremap <C-V> <C-V>
+endif
+
+if has("win32") || has("gui_win32")
+    if executable("PowerShell")
+        " Set PowerShell as the shell for running external !commands
+        " http://stackoverflow.com/questions/7605917/system-with-powershell-in-vim
+        set shell=PowerShell
+        set shellcmdflag=-NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned\ -Command
+        set shellquote=\"
+        " shellxquote must be a literal space character.
+        set shellxquote=
+    endif
+endif
+
+
+function VundlePluginInstall(...)
+    let shell = &shell
+    let shellcmdflag = &shellcmdflag
+    let shellquote = &shellquote
+    let shellxquote = &shellxquote
+
+    set shell=C:\Windows\system32\cmd.exe
+    set shellcmdflag=/c
+    set shellquote=
+    set shellxquote=(
+
+    call call('vundle#installer#new', a:000)
+
+    set shell=shell
+    set shellcmdflag=shellcmdflag
+    set shellquote=shellquote
+    set shellxquote=shellxquote
+endfunction
+
+command! -nargs=* -bang -complete=custom,vundle#scripts#complete PluginInstall
+\ call VundlePluginInstall('!' == '<bang>', <f-args>)
+```
