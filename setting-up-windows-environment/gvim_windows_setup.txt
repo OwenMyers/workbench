@@ -5,6 +5,7 @@ The trickiest part is getting fondled to work with the plug-ins.
 1st change the user template directory environment variables to c:\\temp 
  
 2nd put the following lines in your vimrc
+(These came from https://github.com/VundleVim/Vundle.vim/issues/575)
 ```
 set noundofile
 
