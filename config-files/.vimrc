@@ -35,6 +35,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tell-k/vim-autoflake'
 Plugin 'chrisbra/csv.vim'
+Plugin 'rust-lang/rust.vim'
 
 
 " Track the engine.
