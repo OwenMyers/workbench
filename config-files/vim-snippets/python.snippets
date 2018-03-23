@@ -1,0 +1,22 @@
+
+snippet todo "To do" b
+# TODO: ${2:${1:`date +%d`}.`date +%m`}.`date +%Y`
+# $3
+endsnippet
+
+snippet main "Main function and if __name__..." b
+def main():
+	$1	
+if __name__ == "__main__":
+	main()
+endsnippet
+	
+snippet argp "Simple argparse setup" b
+parser = ArgumentParser()
+parser.add_argument("-${1:f}", required=$2,
+					help="$3")
+
+args = parser.parse_args()
+$1 = args.$1
+$4
+endsnippet
