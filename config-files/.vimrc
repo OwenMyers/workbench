@@ -129,6 +129,9 @@ set t_Co=256                     " 256 colors
 colorscheme one
 set background=dark
 
+" This fixes youcompleteme backround for one dark colorscheme
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+
 "This chunk of stuff below is for the "one" colorscheme.
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
