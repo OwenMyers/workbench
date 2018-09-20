@@ -1,0 +1,6 @@
+[package]
+name = "struct-atrib-ownership"
+version = "0.1.0"
+authors = ["owenmyers <owendalemyers@gmail.com>"]
+
+[dependencies]

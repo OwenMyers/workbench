@@ -2,3 +2,7 @@
 *.pyc
 *.log
 *.out
+*.swp
+
+.DS_Store
+*.lock
