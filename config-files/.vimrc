@@ -31,11 +31,12 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tell-k/vim-autoflake'
 Plugin 'chrisbra/csv.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'w0rp/ale'
 
 
 " Track the engine.
@@ -46,6 +47,9 @@ Plugin 'honza/vim-snippets'
 
 " Colorschemes
 Plugin 'rakr/vim-one'
+Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
+
 
 
 
@@ -125,31 +129,35 @@ augroup END
 " COLOR & APPERARANCE
 """""""""""""""""""""
 syntax on                        " Enable syntax highlighting
-set t_Co=256                     " 256 colors
-"colorscheme pablo
-colorscheme one
+" Scheme
 set background=dark
+let g:gruvbox_contrast_dark='hard'
+set t_Co=256
+set encoding=utf8
+colorscheme gruvbox
+
 
 " This fixes youcompleteme backround for one dark colorscheme
 highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+
 
 "This chunk of stuff below is for the "one" colorscheme.
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+"if (empty($TMUX))
+"  if (has("nvim"))
+"  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+"  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"  endif
+"  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+"  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+"  if (has("termguicolors"))
+"    set termguicolors
+"  endif
+"endif
 
 
 " MORE SETTINGS
@@ -161,7 +169,7 @@ endif
 set nowrap
 set nolist
 set textwidth=80
-"set colorcolumn=80,+0								" show col at textwidth and 80
+set colorcolumn=100               " show col at textwidth and 80
 set cursorline                    " highlight current line
 set cmdheight=1                   " Single-row cmd-line height
 set switchbuf=useopen
@@ -181,7 +189,7 @@ set tags=./tags;/                 " ctags
 set splitbelow splitright         " more natural pane-splitting
 set wildmode=longest,list         " use emacs-style tab completion
 set wildmenu                      " make tab completion for files/buffers act like bash
-set wildignore+=*/tmp/*,*/gems/*,*/node_modules/*,*/dist/*,*/bower_components/*,*.pyc
+set wildignore+=*/gems/*,*/node_modules/*,*/dist/*,*/bower_components/*,*.pyc
 set cole=1                                " set conceal level
 
 " PLUGIN SETTINGS
@@ -289,17 +297,25 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
 
-" Drop Syntastic settings at the end of the config file "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Ale syntax
+" Does not work
+"let g:ale_virtualenv_dir_names = ['anaconda3/envs/ht']
+"let g:ale_lint_dirs = { 'pylint': getcwd() }
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs=1
-let g:syntastic_python_python_use_codec=1
+" Drop Syntastic settings at the end of the config file "
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_enable_signs=1
+"let g:syntastic_python_python_use_codec=1
+"
+"let g:syntastic_quiet_messages = {"regex": [ "missing-docstring", "too-many-locals", "conform to snake_case naming style", "Unable to import", "wrong-import-order"] }
 
 
 "set clipboard=unnamed
@@ -316,10 +332,18 @@ set expandtab
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-let g:UltiSnipsUsePythonVersion=3
+"let g:UltiSnipsUsePythonVersion=3
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetDirectories = ['~/UltiSnips']
 
 set noundofile
 set relativenumber
+set autoread
+
+
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+
+map <silent> <C-n> :NERDTreeToggle<CR>

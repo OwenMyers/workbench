@@ -1,7 +1,6 @@
 [package]
-name = "simple-random"
+name = "pass_by_ref"
 version = "0.1.0"
 authors = ["owenmyers <owendalemyers@gmail.com>"]
 
 [dependencies]
-rand = "0.5"
