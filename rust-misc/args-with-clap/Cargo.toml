@@ -1,0 +1,7 @@
+[package]
+name = "args-with-clap"
+version = "0.1.0"
+authors = ["owenmyers <owendalemyers@gmail.com>"]
+
+[dependencies]
+clap = {version = "2.32", features = ["yaml"]}
